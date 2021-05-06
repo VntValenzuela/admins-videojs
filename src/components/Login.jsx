@@ -49,11 +49,11 @@ export default function Login() {
                                         <Form onSubmit={login}>
                                             <Form.Group controlId="username" className="content">
                                                 <Form.Label>Username or Email</Form.Label>
-                                                <Form.Control type="text" placeholder="Username or Email" onChange={e=>setUser(e.target.value)}/>
+                                                <Form.Control type="text" placeholder="Username or Email" required onChange={e=>setUser(e.target.value)}/>
                                             </Form.Group>
                                             <Form.Group controlId="password" className="content">
                                                 <Form.Label>Password</Form.Label>
-                                                <Form.Control type="password" placeholder="Password" onChange={e=>setPassword(e.target.value)}/>
+                                                <Form.Control type="password" placeholder="Password" required onChange={e=>setPassword(e.target.value)}/>
                                             </Form.Group>
                                             <Button variant="login" type="submit">
                                                 Login
