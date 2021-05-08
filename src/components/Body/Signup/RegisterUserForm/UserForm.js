@@ -31,6 +31,7 @@ function UserForm(props) {
             .then(res => res.json)
             .then(data => console.log(data))
             .catch(err => console.log(err))
+            setSuccess(true);
         } else {
             setSuccess(false);
             setError(true);
