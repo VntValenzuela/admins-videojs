@@ -1,0 +1,48 @@
+form {
+    margin: 5% 10% 0% 10%;
+}
+
+dd {
+    margin: 0%;
+}
+dt {
+    padding-bottom: 5px;
+}
+
+dl {
+    margin: 4% 25% 0% 25%;
+    text-align: left;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+    border-color: #E30D0D;
+}
+
+button.Register, button.Login {
+    background-color: #252627;
+    outline-color: aqua;
+    border: none;
+    color: aliceblue;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.Register {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+button.Register:hover, button.Login:hover {
+    background-color: #E30D0D;
+}
+
+button.Register:active, button.Login:active {
+    background-color: #e30d0d92;
+}
+
+.Login {
+    margin-left: 20px;
+}
