@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Card, Button, Container, Form, Image } from "react-bootstrap"
+import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import Swal from 'sweetalert2'
 import './Login.css'
-import logo from '../assets/logo.png'
+import logo from '../../../assets/logo.png'
 
 export default function Login() {
     const [username, setUser] = useState('')
@@ -59,7 +60,7 @@ export default function Login() {
                                                 Login
                                             </Button>
                                         </Form>
-                                        <Card.Subtitle className="mb-2 text-muted p-3">Don't you have an account yet? <a className="signup">Sign up</a></Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted p-3">Don't you have an account yet? <Link to="/" className="signup"> Sign up</Link></Card.Subtitle>
                                     </Card.Body>
                         </Card>
                     </Container>

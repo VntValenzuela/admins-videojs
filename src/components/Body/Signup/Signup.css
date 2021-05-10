@@ -1,0 +1,68 @@
+.main_page {
+    min-height: calc(100vh);
+    padding: 20px;
+    background: #121212;
+    color: #FAFAFA;
+}
+@media (min-width: 1012px) {
+    .contents {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        padding-top: 40px;
+        margin: 5%;
+    }
+}
+
+@media (min-width: 1012px){
+    .message {
+        width: 50%;
+        height: 200px;
+        text-align: center;
+    }
+}
+
+.registerform {
+    width: calc(100vh/2);
+}
+
+h1, h2{
+    font-family: 'Kaushan Script',cursive;
+    text-align: center;
+    margin: 0%;
+}
+
+.message h1 {
+    font-size: 114px;
+}
+
+.message h2 {
+    font-size: 40px;
+}
+
+.message h2 span {
+    color: #E30D0D;
+}
+
+p {
+    font-family: 'Karla',sans-serif;
+    margin: 40px;
+    font-size: 30px;
+    text-align: left;
+    color: #DBDBDB;
+}
+
+.registerform {
+    width: 50%;
+    height: 200px;
+    
+    text-align: center;
+}
+
+.registerform h1 {
+    font-size: 60px;
+}
+
+.registerform h1 span {
+    color: #E30D0D;
+}

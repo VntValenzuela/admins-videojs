@@ -1,16 +1,19 @@
 import './App.css';
-import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Register from './components/Register';
+import Body from './components/Body/Body';
 import Home from './components/Home';
+import Header from './components/Header/Header'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 function App() {
   return (
-    <div className="App">
-      {/* <Register/> */}
-      <Home/>
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Body/>
+      </div>
+    </Router>
   );
 }
 
