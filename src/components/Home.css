@@ -3,7 +3,60 @@ body {
 	color: #ffffff;
 }
 
-.movie-app > .row {
+.row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
+	position: relative;
+	top: 200px;
+	left: 1050px;
+}
+
+.image-container {
+	position: relative;
+	transition: transform 0.2s;
+	max-height: 500px;
+	min-width: 337px;
+	max-width: 340px;
+    
+}
+
+.image-container:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+	width: auto;
+}
+
+.image-container:hover .overlay {
+	opacity: 1;
+}
+
+.overlay {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	width: auto;
+	transition: 0.5s ease;
+	opacity: 0;
+	bottom: 0;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
+}
+.topleft {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 200px;
+    width: 350px;
+    vertical-align: middle;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+	align-items: center;
+}
+.movie-app >.movies {
+	position: relative;
+	top: 300px;
+	left: 50px;
 }
