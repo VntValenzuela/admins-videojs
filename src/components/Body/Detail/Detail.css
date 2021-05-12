@@ -1,0 +1,52 @@
+@media (min-width: 800px) {
+    .left-contents {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        margin: 3%;
+    }
+}
+
+h1, h2{
+    font-family: 'Kaushan Script',cursive;
+    text-align: center;
+    margin: 0%;
+}
+
+@media (min-width: 1012px){
+    .messageDetail {
+        width: 50%;
+        height: 40rem;
+        text-align: center;
+    }
+}
+
+.messageDetail h2 {
+    font-size: 40px;
+}
+
+.messageDetail h2 span {
+    color: #E30D0D;
+}
+
+p {
+    font-family: 'Karla',sans-serif;
+    margin: 40px;
+    font-size: 25px;
+    text-align: left;
+    color: #DBDBDB;
+}
+
+.imageDetail {
+    height: 40rem;
+    margin: 15px;
+}
+
+.dataDetail {
+    height: 40rem;
+    margin: 15px;
+}
+
+.dataDetail p span{
+    color: #E30D0D;
+}
