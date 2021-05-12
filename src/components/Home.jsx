@@ -3,7 +3,6 @@ import './Home.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from "react-bootstrap"
 import MovieList from "./MovieList";
-import MovieListHeading from './MovieListHeading';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png'
 
