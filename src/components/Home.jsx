@@ -5,8 +5,10 @@ import { Image } from "react-bootstrap"
 import MovieList from "./MovieList";
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png'
+import { Redirect } from 'react-router-dom'
 
-const Home = () => {
+function Home ({auth}) {
+
 	const [movies, setMovies] = useState([]);
 	const [prevMovies, setPrevMovies] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -57,6 +59,10 @@ const Home = () => {
 		searchMovie(searchValue);
 	}, [searchValue]);
 
+
+	if(!auth) {
+		return <Redirect to='/login'/>
+	}
     return (
 		<div className='container-fluid movie-app'>
 			<Image src={logo} className="topleft"/>

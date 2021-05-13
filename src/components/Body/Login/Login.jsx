@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Button, Container, Form, Image } from "react-bootstrap"
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import Axios from 'axios'
 import Swal from 'sweetalert2'
 import './Login.css'
@@ -9,15 +9,27 @@ import logo from '../../../assets/logo.png'
 export default function Login() {
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
+    const [users, setUsers] = useState('')
+    let history = useHistory()
+    let auth = false
 
-    const login = async(e) => {
+
+    const getUsers = async () => {
+        const response = await Axios.get('https://varplayerapi.herokuapp.com/user')
+		setUsers(response.data);
+	};
+
+    getUsers()
+
+    const login = (e) => {
         e.preventDefault()
-        if (username === password) {
-            // const response = await Axios.get('https://varplayerapi.herokuapp.com/user')
-            // console.log(response)
-            console.log("logged")
-        }
-        else {
+        users.forEach(user => {
+            if ( (username === user.username || username === user.email) && password === user.password) {
+                auth = true
+                history.push('/home')
+            }
+        });
+        if (!auth) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -31,7 +43,6 @@ export default function Login() {
 
         return (
             <div className="loginContainer d-flex justify-content-center align-items-center">
-                <Image src={logo} className="topleft"/>
                 <style type="text/css">
                     {`
                     .btn-login {
