@@ -5,12 +5,14 @@ import MovieList from "./MovieList";
 import SearchBox from './SearchBox';
 import { Redirect } from 'react-router-dom'
 import {LoginAuth} from '../helper/Context'
+import { Button, Dropdown, ButtonGroup } from "react-bootstrap"
 
 function Home () {
 
 	const [movies, setMovies] = useState([]);
 	const [prevMovies, setPrevMovies] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+	const [dropdownValue, setDropDownValue] = useState('');
 	const {auth, setAuth} = useContext(LoginAuth)
 
 	const getMovieRequest = async () => {
@@ -45,19 +47,46 @@ function Home () {
 		else
 		{
 			setMovies(arraymovies);
-		}
-
-		
-		
-
+		}		
 	  }
+
+	  const filterMovie = () => {
+		console.log(dropdownValue);
+		let arraymovies = [];
+		for(var i = 0; i < movies.length; i++)
+		{
+		if(movies[i].genre == dropdownValue)
+		{
+			const foundMovie = movies[i];
+			arraymovies.push(foundMovie);	
+		}
+		}
+		if(arraymovies.length === 0)
+		{
+			console.log("entro al prev");
+			arraymovies = prevMovies;	
+			setMovies(arraymovies);
+		}
+		else
+		{
+			console.log("entro al set");
+			setMovies(arraymovies);
+			arraymovies = [];
+		}	
+	
+	}
+
 	  useEffect(() => {
 		getMovieRequest();
 	}, []);
 
 	useEffect(() => {
-		searchMovie(searchValue);
+		searchMovie();
 	}, [searchValue]);
+
+	useEffect(() => {
+		filterMovie();
+	}, [dropdownValue]);
 
 
 	if(!auth) {
@@ -65,6 +94,19 @@ function Home () {
 	}
     return (
 		<div className='container-fluid movie-app'>
+			<div className='right'>
+			<Dropdown as={ButtonGroup}
+				onSelect={(event) => setDropDownValue(event)}>
+  			<Button variant="danger">Filter</Button>
+  			<Dropdown.Toggle split variant="danger" id="dropdown-split-basic" />
+  			<Dropdown.Menu>
+    		<Dropdown.Item eventKey="All">All</Dropdown.Item>
+    		<Dropdown.Item eventKey="Action">Action</Dropdown.Item>
+    		<Dropdown.Item eventKey="Drama">Drama</Dropdown.Item>
+			<Dropdown.Item eventKey="Comedy">Comedy</Dropdown.Item>
+  		</Dropdown.Menu>
+		</Dropdown>
+		</div>
 			<div className='row d-flex'>
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>
@@ -76,7 +118,6 @@ function Home () {
 };
 
 export default Home;
-
 
 
 
