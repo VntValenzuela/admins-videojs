@@ -4,17 +4,8 @@ import { Card, Button, Container, Form, Image } from "react-bootstrap"
 import './Detail.css'
 
 
-const data = {
-    _id: "6087541c9fd92b2114eace39",
-    name: "Avengers Endgame",
-    releaseDate: "2019-04-22T00:00:00.000Z",
-    description: "The Final Avengers Movie",
-    runtime: "3h 2m",
-    link: "https://www.youtube.com/watch?v=TcMBFSGVi1c",
-    timesWatched: 0
-}
-
-export default function Detail() {
+ const Detail = (props) => {
+    const data = props.location.data;
     const getDate = () => {
         const d = new Date(data.releaseDate)
         return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()
@@ -35,7 +26,7 @@ export default function Detail() {
                 </style>
                 <div className="messageDetail">
                     <h2>Video<span> Details </span></h2>
-                    <Image src={"https://lumiere-a.akamaihd.net/v1/images/690x0w_f1b0509a.jpeg?region=0%2C0%2C690%2C1035"} className="imageDetail"/>
+                    <Image src={data.imgsrc} className="imageDetail"/>
                     <div><Button href={data.link} variant="watch">Watch</Button></div>
                 </div>
             <div className="dataDetail">
@@ -47,3 +38,4 @@ export default function Detail() {
         </div>
     )
 }
+export default Detail;

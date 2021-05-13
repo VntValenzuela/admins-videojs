@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import './Home.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Image } from "react-bootstrap"
 import MovieList from "./MovieList";
 import SearchBox from './SearchBox';
-import logo from '../assets/logo.png'
 import { Redirect } from 'react-router-dom'
 import {LoginAuth} from '../helper/Context'
 
@@ -29,7 +27,7 @@ function Home () {
 		{
 		if(searchValue.length > 0)
 		{
-			if (movies[i].name.substr(0, searchValue.length).toUpperCase() == searchValue.toUpperCase()) 
+			if (movies[i].name.substr(0, searchValue.length).toUpperCase() == searchValue.toUpperCase())
 			{	
 				const foundMovie = movies[i];
 				arraymovies.push(foundMovie);
@@ -67,7 +65,6 @@ function Home () {
 	}
     return (
 		<div className='container-fluid movie-app'>
-			<Image src={logo} className="topleft"/>
 			<div className='row d-flex'>
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>

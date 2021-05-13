@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 import Signup from './Signup/Signup'
 import Login from './Login/Login'
 import Home from '../Home'
+import Detail from './Detail/Detail'
 
 function Body() {
     return (
@@ -11,6 +12,7 @@ function Body() {
                 <Route path="/" component={Signup} exact/>
                 <Route path="/login" component={Login} exact />
                 <Route path="/home" component={Home} exact />
+                <Route path="/detail" component={Detail} exact />
                 <Route path="*"><div className='container'>404 Not Found</div></Route>
             </Switch>
         </section>
