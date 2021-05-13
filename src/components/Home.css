@@ -64,4 +64,8 @@ body {
 img {
 	width: 100%;
 }
+.right {
+	position: fixed; 
+    right: 0px;
+	 }
 
