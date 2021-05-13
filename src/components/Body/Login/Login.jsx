@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Card, Button, Container, Form, Image } from "react-bootstrap"
 import {Link, useHistory} from 'react-router-dom'
 import Axios from 'axios'
 import Swal from 'sweetalert2'
 import './Login.css'
-import logo from '../../../assets/logo.png'
+import {LoginAuth} from '../../../helper/Context'
 
 export default function Login() {
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
     const [users, setUsers] = useState('')
-    let history = useHistory()
-    let auth = false
+    const history = useHistory()
+    const {auth, setAuth} = useContext(LoginAuth)
+    let authFlag = false
 
 
     const getUsers = async () => {
@@ -25,11 +26,12 @@ export default function Login() {
         e.preventDefault()
         users.forEach(user => {
             if ( (username === user.username || username === user.email) && password === user.password) {
-                auth = true
+                authFlag = true
+                setAuth(true)
                 history.push('/home')
             }
         });
-        if (!auth) {
+        if (!authFlag) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

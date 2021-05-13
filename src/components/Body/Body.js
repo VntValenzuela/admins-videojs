@@ -10,7 +10,8 @@ function Body() {
             <Switch>
                 <Route path="/" component={Signup} exact/>
                 <Route path="/login" component={Login} exact />
-                <Route path="/home" component={ () => <Home auth={true}/>} exact />
+                <Route path="/home" component={Home} exact />
+                <Route path="*"><div className='container'>404 Not Found</div></Route>
             </Switch>
         </section>
     )

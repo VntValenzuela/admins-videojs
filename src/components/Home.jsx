@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Home.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from "react-bootstrap"
@@ -6,12 +6,14 @@ import MovieList from "./MovieList";
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png'
 import { Redirect } from 'react-router-dom'
+import {LoginAuth} from '../helper/Context'
 
-function Home ({auth}) {
+function Home () {
 
 	const [movies, setMovies] = useState([]);
 	const [prevMovies, setPrevMovies] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+	const {auth, setAuth} = useContext(LoginAuth)
 
 	const getMovieRequest = async () => {
 		const url = `https://varplayerapi.herokuapp.com/movie`;
