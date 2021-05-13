@@ -1,15 +1,21 @@
-import React from 'react'
+import React , { useContext } from 'react'
 import {Link} from 'react-router-dom'
 import { Card, Button, Container, Form, Image } from "react-bootstrap"
 import './Detail.css'
+import {LoginAuth} from '../../../helper/Context'
+import { Redirect } from 'react-router-dom'
 
 
  const Detail = (props) => {
     const data = props.location.data;
+    const {auth, setAuth} = useContext(LoginAuth)
     const getDate = () => {
         const d = new Date(data.releaseDate)
         return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate()
     }
+    if(!auth) {
+		return <Redirect to='/login'/>
+	}
     return (
         <div className="left-contents">
             <style type="text/css">
