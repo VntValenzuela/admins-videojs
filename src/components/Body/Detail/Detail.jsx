@@ -28,6 +28,17 @@ import { Redirect } from 'react-router-dom'
                     border-radius:30px;
                     margin: 2%;
                     }
+                    @media only screen and (max-width: 850px) {
+                        .btn-watch {
+                            background-color: #E30D0D;
+                            color: white;
+                            opacity: 1;
+                            width: 8em;
+                            border-radius:30px;
+                            margin: 2%;
+                            margin-left: 40%;
+                            }
+                      }
                     `}
                 </style>
                 <div className="messageDetail">
