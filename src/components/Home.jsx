@@ -53,11 +53,11 @@ function Home () {
 	  const filterMovie = () => {
 		console.log(dropdownValue);
 		let arraymovies = [];
-		for(var i = 0; i < movies.length; i++)
+		for(var i = 0; i < prevMovies.length; i++)
 		{
-			if(movies[i].genre == dropdownValue)
+			if(prevMovies[i].genre == dropdownValue)
 			{
-				const foundMovie = movies[i];
+				const foundMovie = prevMovies[i];
 				arraymovies.push(foundMovie);	
 			}
 		}
