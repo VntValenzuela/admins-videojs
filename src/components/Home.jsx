@@ -12,7 +12,7 @@ function Home () {
 	const [movies, setMovies] = useState([]);
 	const [prevMovies, setPrevMovies] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-	const [dropdownValue, setDropDownValue] = useState('');
+	const [dropdownValue, setDropDownValue] = useState('All');
 	const {auth, setAuth} = useContext(LoginAuth)
 
 	const getMovieRequest = async () => {
@@ -27,18 +27,18 @@ function Home () {
 		let arraymovies = [];
 		for(var i = 0; i < movies.length; i++)
 		{
-		if(searchValue.length > 0)
-		{
-			if (movies[i].name.substr(0, searchValue.length).toUpperCase() == searchValue.toUpperCase())
-			{	
-				const foundMovie = movies[i];
-				arraymovies.push(foundMovie);
+			if(searchValue.length > 0)
+			{
+				if (movies[i].name.substr(0, searchValue.length).toUpperCase() == searchValue.toUpperCase())
+				{	
+					const foundMovie = movies[i];
+					arraymovies.push(foundMovie);
+				}
 			}
-		}
-		else
-		{
-			arraymovies = prevMovies;
-		}
+			else
+			{
+				arraymovies = prevMovies;
+			}
 		}
 		if(arraymovies.length === 0)
 		{
@@ -55,11 +55,11 @@ function Home () {
 		let arraymovies = [];
 		for(var i = 0; i < movies.length; i++)
 		{
-		if(movies[i].genre == dropdownValue)
-		{
-			const foundMovie = movies[i];
-			arraymovies.push(foundMovie);	
-		}
+			if(movies[i].genre == dropdownValue)
+			{
+				const foundMovie = movies[i];
+				arraymovies.push(foundMovie);	
+			}
 		}
 		if(arraymovies.length === 0)
 		{
@@ -94,20 +94,28 @@ function Home () {
 	}
     return (
 		<div className='container-fluid movie-app'>
-			<div className='right'>
-			<Dropdown as={ButtonGroup}
-				onSelect={(event) => setDropDownValue(event)}>
-  			<Button variant="danger">Filter</Button>
-  			<Dropdown.Toggle split variant="danger" id="dropdown-split-basic" />
-  			<Dropdown.Menu>
-    		<Dropdown.Item eventKey="All">All</Dropdown.Item>
-    		<Dropdown.Item eventKey="Action">Action</Dropdown.Item>
-    		<Dropdown.Item eventKey="Drama">Drama</Dropdown.Item>
-			<Dropdown.Item eventKey="Comedy">Comedy</Dropdown.Item>
-  		</Dropdown.Menu>
-		</Dropdown>
-		</div>
-			<div className='row d-flex'>
+			<style type="text/css">
+                    {`
+                    .btn-login {
+                    background-color: red;
+                    color: white;
+                    opacity: 1;
+                    }
+                    `}
+                </style>
+			<h2>Home</h2>
+			<div className='d-flex'>
+				<Dropdown as={ButtonGroup}
+						onSelect={(event) => setDropDownValue(event)}>
+					<Button variant="login">Genre</Button>
+					<Dropdown.Toggle split variant="login" id="dropdown-split-basic" />
+					<Dropdown.Menu>
+						<Dropdown.Item eventKey="All">All</Dropdown.Item>
+						<Dropdown.Item eventKey="Action">Action</Dropdown.Item>
+						<Dropdown.Item eventKey="Drama">Drama</Dropdown.Item>
+						<Dropdown.Item eventKey="Comedy">Comedy</Dropdown.Item>
+					</Dropdown.Menu>
+				</Dropdown>
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>
 			<div className='movies d-flex'>

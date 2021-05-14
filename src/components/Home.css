@@ -57,8 +57,8 @@ body {
 }
 .movie-app >.movies {
 	position: relative;
-	top: 300px;
-	left: 50px;
+	top: 8em;
+	left: 1em;
 }
 
 img {
